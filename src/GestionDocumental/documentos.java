@@ -1,5 +1,4 @@
 package GestionDocumental;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -88,6 +87,24 @@ public class documentos {
 			return rs;
 		}
 		
+		
+		public ResultSet Recuperardoc() throws ClassNotFoundException, SQLException
+		{
+			
+		
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
+			
+			Statement st = con.createStatement();
+			
+			String query = " select id_documento, nombre from documentos where id_documento not in (select id_documento from doc_binding)";
+			
+			ResultSet rs = st.executeQuery(query);
+			
+			return rs;
+		}
+		
 		public void Almacenar() throws ClassNotFoundException, SQLException
 		{
 			
@@ -130,21 +147,26 @@ public class documentos {
 			con.close();
 		}
 		
-		public ResultSet Buscar() throws ClassNotFoundException, SQLException
+		public int  GetId_dep(int iddep) throws ClassNotFoundException, SQLException
 		{
+			 
 			
-		
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
 			
 			Statement st = con.createStatement();
 			
-			String query = " select id_documento, fecha_creacion, nombre from documentos where activacion=1 ";
-			
+			String query = "SELECT id_dep FROM documentos where id_documento = '"+iddep+"'";
 			ResultSet rs = st.executeQuery(query);
+			while(rs.next())
+			{
+				iddep = rs.getInt(1);
+			}
 			
-			return rs;
+			return iddep;
+			
+			
 		}
 		
 		
