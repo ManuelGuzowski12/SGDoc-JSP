@@ -44,7 +44,7 @@ public class departamentos {
 			
 			Statement st = con.createStatement();
 			
-			String query = " select * from departamentos";
+			String query = " select id_dep, descripcion from departamentos";
 			
 			ResultSet rs = st.executeQuery(query);
 			

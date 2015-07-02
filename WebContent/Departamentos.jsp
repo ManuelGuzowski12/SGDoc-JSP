@@ -23,6 +23,33 @@
 </head>
 <body>
 
-
+<div class = "container">
+		
+			<div class="row">
+						<div class="col-md-4"> 
+					  <div>
+						<b>Departamentos </b>
+						<div class="dropdown">
+								<select name="id_dep" class="form-control">                      
+									<option value="0">Seleccionar Departamento</option>
+									
+									<% 	departamentos dep = new departamentos();
+									ResultSet rs = dep.Recuperar();
+										while(rs.next())
+										{
+									%>
+										<option value="<%=rs.getInt(1)%>"><%=rs.getString(2)%></option>
+									<%
+										}
+									%>
+									
+								</select>
+								<br>
+								<a href="valida_dep.jsp"><input type="button" value="Ingresar"></a>
+							</div>
+						</div>
+						</div>
+			</div>
+</div>
 </body>
 </html>
