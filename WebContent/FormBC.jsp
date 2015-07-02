@@ -20,7 +20,8 @@
 		padding-bottom: 70px;
 		background-color: #c1bfea;
 		font: oblique 120% sans-serif bold;
-		font-size: x-large}
+		font-size: x-large
+		}
 </style>
 </head>
 <body>

@@ -24,7 +24,7 @@
 	else
 	{
 		session.setAttribute("userlogin", user.getIdusuario());
-		response.sendRedirect("FormRB.jsp");
+		response.sendRedirect("FormDB.jsp");
 	}
 	
 %>

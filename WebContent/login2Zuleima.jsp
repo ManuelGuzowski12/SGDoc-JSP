@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="uservalidation.jsp" method = "post">
+<form action="uservalidationZuleima.jsp" method = "post">
 	<p>Username: <input type = "text" name="username">
 	<p>Password:<input type = "password" name="password">
 	<p><input type = "submit" value= "ENVIAR">
