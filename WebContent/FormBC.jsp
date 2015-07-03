@@ -59,7 +59,7 @@
 						
 						<br>
 						<div>
-						<b>Cajas disponibles</b>
+						<b>Cajas </b>
 						<div class="dropdown">
 								<select name="id_caja" class="form-control">                      
 									<option value="0">Seleccionar Caja</option>

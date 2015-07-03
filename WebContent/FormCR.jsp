@@ -59,7 +59,7 @@
 						
 						<br>
 						<div>
-						<b>racks disponibles</b>
+						<b>Racks</b>
 						<div class="dropdown">
 								<select name="id_rack" class="form-control">                      
 									<option value="0">Seleccionar racks</option>
