@@ -17,7 +17,7 @@ public class UsuariosDatos {
 			
 			Connection con;
 			Class.forName("com.mysql.jdbc.Driver");
-			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SGdoc","root","");
+			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SGdoc","root","12345");
 			
 		} catch (Exception e) {
 			// TODO: handle exception

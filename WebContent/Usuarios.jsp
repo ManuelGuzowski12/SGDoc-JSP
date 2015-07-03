@@ -22,7 +22,7 @@
 	<%if(session.getAttribute("id")  != null) {
 		session.setAttribute("id_modulo", request.getParameter("id_modulo"));
 	%>
-		<%if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), session.getAttribute("id_modulo"))){ %>
+		<%if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), session.getAttribute("id_modulo").toString())){ %>
 		<div class="col-md-4">
 			<div class="box">
 			<div><h4>Opciones</h4></div>
