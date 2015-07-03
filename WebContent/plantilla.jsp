@@ -67,11 +67,13 @@
 								
 							%>
 							<div class="form-group">
-								<b><%=rs.getString(2)%></b><input type="text" class="form-control" name="<%=rs.getString(1) %>">
+								<b><%=rs.getString(3)%></b><input type="text" class="form-control" name="<%=rs.getString(2) %>">
 							</div>
 							<%
 							}
+							
 							%>
+							
 							<button type="submit" class="btn btn-lg btn-primary btn-block" >Resgistrar Documento</button>
 					</form>
 				</div>

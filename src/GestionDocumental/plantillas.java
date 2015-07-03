@@ -61,7 +61,7 @@ public class plantillas {
 		
 		Statement st = con.createStatement();
 		
-		String query = " select campo, descripcion from plantillas where id_tipodoc = '"+getIdtipodoc()+"'";
+		String query = " select id_plantilla, campo, descripcion from plantillas where id_tipodoc = '"+getIdtipodoc()+"'";
 		
 		ResultSet rs = st.executeQuery(query);
 		

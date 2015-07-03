@@ -42,8 +42,8 @@
 	while(rs.next())
 	{
 		datos.setIddocumento(id_documento);
-		datos.setIdtipo(id_tipodoc);
-		valor = request.getParameter(rs.getString(1));
+		datos.setIdplantilla(rs.getInt(1));
+		valor = request.getParameter(rs.getString(2));
 		datos.setValor(valor);
 		datos.Almacenar();
 	}

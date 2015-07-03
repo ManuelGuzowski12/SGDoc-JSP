@@ -2,6 +2,7 @@ package GestionDocumental;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -9,13 +10,13 @@ public class datos_busqueda {
 
 		private int id_busqueda;
 		private int id_documento;
-		private int id_tipodoc;
+		private int id_plantilla;
 		private String valor;
 		
 		public datos_busqueda(){
 			id_busqueda = 0;
 			id_documento = 0;
-			id_tipodoc = 0;
+			id_plantilla = 0;
 			valor = "";
 		}
 		
@@ -31,11 +32,11 @@ public class datos_busqueda {
 		public void setIddocumento(int id_documento){
 			this.id_documento = id_documento;
 		}
-		public int getIdtipo(){
-			return id_tipodoc;
+		public int getIdplantilla(){
+			return id_plantilla;
 		}
-		public void setIdtipo(int id_tipodoc){
-			this.id_tipodoc = id_tipodoc;
+		public void setIdplantilla(int id_plantilla){
+			this.id_plantilla = id_plantilla;
 		}
 		public String getValor(){
 			return valor;
@@ -54,10 +55,27 @@ public class datos_busqueda {
 			
 			Statement st = con.createStatement();
 			
-			String query = "insert into datos_busqueda (id_documentos, id_tipodoc, valor) "; 
-			query+= "values ('"+ getIddocumento()+"','"+ getIdtipo()+"','" +getValor()+"')";
+			String query = "insert into datos_busqueda (id_documentos, id_plantilla, valor) "; 
+			query+= "values ('"+ getIddocumento()+"','"+ getIdplantilla()+"','" +getValor()+"')";
 			st.executeUpdate(query);
 			
+		}
+		
+		public ResultSet GetCampos() throws ClassNotFoundException, SQLException
+		{
+			
+		
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
+			
+			Statement st = con.createStatement();
+			
+			String query = " SELECT * FROM Plantilla WHERE id_plantilla = '"+getIdplantilla()+"'";
+			
+			ResultSet rs = st.executeQuery(query);
+			
+			return rs;
 		}
 		
 	
