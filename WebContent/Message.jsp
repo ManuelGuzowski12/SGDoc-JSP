@@ -36,6 +36,11 @@
 							<button type="submit" class="btn btn-lg btn-primary btn-block">
 								Registrar Documento Nuevo  <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
 							</button>
+						</form><br>
+						<form action="busqueda.jsp" class="form-inline">
+							<button type="submit" class="btn btn-lg btn-info btn-block">
+								Buscar Documento  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+							</button>
 						</form>
 				</div>
 				<div class="col-md-4"></div>

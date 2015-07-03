@@ -82,7 +82,6 @@ public class Usuarios {
 			setIdpersona(rs.getString(2));
 			setStatus(1);
 		}
-	}
-	
+	}	
 	
 }

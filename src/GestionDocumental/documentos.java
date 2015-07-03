@@ -80,7 +80,7 @@ public class documentos {
 			
 			Statement st = con.createStatement();
 			
-			String query = " select * from documentos";
+			String query = "SELECT d.id_documento, d.fecha_creacion, u.username , d.nombre, dep.descripcion from documentos d, usuarios u, departamentos dep where d.id_usuario = u.id_usuario and d.id_dep = dep.id_dep";
 			
 			ResultSet rs = st.executeQuery(query);
 			

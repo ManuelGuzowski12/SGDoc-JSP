@@ -46,7 +46,7 @@
 							<input type="hidden" class="form-control" name="fecha" value="<%=fecha.format(new java.util.Date())%>">
 						</div>
 						<div class="form-group">
-							<input type="hidden" class="form-control" value="<% out.println(session.getAttribute("userlogin")); %>" name="username">
+							<input type="hidden" class="form-control" value="<% out.println(session.getAttribute("id")); %>" name="username">
 						</div>
 						<%	int tipo_doc = Integer.parseInt(request.getParameter("tipo_doc"));
 							

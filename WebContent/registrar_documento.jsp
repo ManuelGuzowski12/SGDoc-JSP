@@ -72,7 +72,7 @@
 							</div>
 					</div>
 					<div class="form-group">
-						<input type="hidden" class="form-control" value="<% out.println(session.getAttribute("userlogin")); %>" name="username">
+						<input type="hidden" class="form-control" value="<% out.println(session.getAttribute("id")); %>" name="username">
 					</div>
 					<button type="submit" class="btn btn-lg btn-primary btn-block" >Enviar</button>
 				</form>

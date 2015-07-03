@@ -13,7 +13,7 @@ public class ModulosDatos {
 			@SuppressWarnings("unused")
 			Connection con;
 			Class.forName("com.mysql.jdbc.Driver");
-			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SGdoc","root","");
+			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SGdoc","root","12345");
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -52,7 +52,7 @@ public class ModulosDatos {
 		Connection conexion = CrearConexion();
 		
 		try {
-			PreparedStatement st = conexion.prepareStatement("select * from modulos where id_modulo = any(select id_modulo from user_mod where id_usuario = ? and permiso = 1)");
+			PreparedStatement st = conexion.prepareStatement("select * from modulos where id_modulo = any(select id_modulo from user_mod where id_usuario = ? and permiso = 1) and id_padre = '0' or id_padre=null");
 			st.setString(1, id);
 			ResultSet rs= st.executeQuery();
 			while(rs.next()){
@@ -74,6 +74,34 @@ public class ModulosDatos {
 		}
 		return lista;
 	}
+	public static LinkedList<Modulos> getModuloHijos(String id, String id_mod){
+		LinkedList<Modulos> lista = new LinkedList<Modulos>();
+		Connection conexion = CrearConexion();
+		
+		try {
+			PreparedStatement st = conexion.prepareStatement("select * from modulos where id_modulo = any(select id_modulo from user_mod where id_usuario = ? and permiso = 1) and id_padre = ?");
+			st.setString(1, id);
+			ResultSet rs= st.executeQuery();
+			while(rs.next()){
+				Modulos mod = new Modulos();
+				mod.setid(rs.getString("id_modulo"));
+				mod.setnombre(rs.getString("nombre"));
+				mod.setdesc(rs.getString("descripcion"));
+				mod.setUrl(rs.getString("url"));
+				mod.setidPadre(rs.getString("id_padre"));
+				lista.add(mod);
+			}
+			rs.close();
+			st.close();
+			conexion.close();
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return lista;
+	}
+	
 	
 	
 	
