@@ -98,11 +98,11 @@ public class documentos {
 			
 			Statement st = con.createStatement();
 			
-			String query = " select id_documento, nombre from documentos where id_documento not in (select id_documento from doc_binding)";
+			String query = " select id_documento, nombre from documentos where id_documento not in (select id_documento from doc_binding) ";
 			
 			ResultSet rs = st.executeQuery(query);
 			
-			return rs;
+				return rs;
 		}
 		
 		public void Almacenar() throws ClassNotFoundException, SQLException

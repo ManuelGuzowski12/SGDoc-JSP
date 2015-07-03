@@ -63,19 +63,19 @@ public class Binding {
 			public ResultSet Recuperar() throws ClassNotFoundException, SQLException
 			{
 				
-			
 				Class.forName("com.mysql.jdbc.Driver");
 				
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
 				
 				Statement st = con.createStatement();
 				
-				String query = " select id_binding, codigo from binding";
+				String query = " select id_binding, codigo from binding ";
 				
 				ResultSet rs = st.executeQuery(query);
 				
-				return rs;
-			}
+					return rs;
+
+			}	
 			
 			//recupera los binding que no esta aun guardados en las cajas
 			public ResultSet Recuperarbin() throws ClassNotFoundException, SQLException
@@ -117,76 +117,6 @@ public class Binding {
 				return iddep;
 			}	
 			
-			
-			//traer binding del depto 1
-			public ResultSet Recuperar1() throws ClassNotFoundException, SQLException
-			{
-				
-			
-				Class.forName("com.mysql.jdbc.Driver");
-				
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
-				
-				Statement st = con.createStatement();
-				
-				String query = " select id_binding, codigo from binding where id_dep = 1 ";
-				
-				ResultSet rs = st.executeQuery(query);
-				
-				return rs;
-			}
-			
-			//traer binding de depto 2
-			public ResultSet Recuperar2() throws ClassNotFoundException, SQLException
-			{
-				
-			
-				Class.forName("com.mysql.jdbc.Driver");
-				
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
-				
-				Statement st = con.createStatement();
-				
-				String query = " select id_binding, codigo from binding where id_dep = 2 ";
-				
-				ResultSet rs = st.executeQuery(query);
-				
-				return rs;
-			}
-			//traer binding de depto 3
-			public ResultSet Recuperar3() throws ClassNotFoundException, SQLException
-			{
-				
-			
-				Class.forName("com.mysql.jdbc.Driver");
-				
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
-				
-				Statement st = con.createStatement();
-				
-				String query = " select id_binding, codigo from binding where id_dep = 3";
-				
-				ResultSet rs = st.executeQuery(query);
-				
-				return rs;
-			}
-			// traer Binding de depto 4
-			public ResultSet Recuperar4() throws ClassNotFoundException, SQLException
-			{
-				
-			
-				Class.forName("com.mysql.jdbc.Driver");
-				
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sgdoc","root","12345");
-				
-				Statement st = con.createStatement();
-				
-				String query = " select id_binding, codigo from binding where id_dep = 4";
-				
-				ResultSet rs = st.executeQuery(query);
-				
-				return rs;
-			}
 			
 			
 			
