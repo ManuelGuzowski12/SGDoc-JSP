@@ -31,7 +31,17 @@
 		<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"aria-hidden="true"> Home</span></a>
 	</nav>
 	<div class="container">
-		
+		 <h1><strong>Gestion Documental</strong></h1>
+        <hr class="colorgraph-01"><br>
+        <div class="container">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <a href="registrar_documento.jsp" style="text-decoration: none;"><button type="submit" class="btn btn-lg btn-success btn-block" >
+                        <strong>Agregar</strong> &nbsp;&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button></a><br>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
 		<div class="col-md-12"> 
 		
 				<table class="table table-bordered display" id="myTable">
