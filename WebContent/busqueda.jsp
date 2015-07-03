@@ -19,7 +19,7 @@
 <body>
 	<% 
 		documentos doc = new documentos();
-		ResultSet rs = doc.Buscar();
+		ResultSet rs = doc.Recuperar();
 		
 	%>
 	<nav class="navbar navbar-default navbar-inverse">
