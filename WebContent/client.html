@@ -1,0 +1,67 @@
+client.html:
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<script type="text/javascript">
+function createXMLHttpRequest(){
+  // See http://en.wikipedia.org/wiki/XMLHttpRequest
+  // Provide the XMLHttpRequest class for IE 5.x-6.x:
+  if( typeof XMLHttpRequest == "undefined" ) XMLHttpRequest = function() {
+    try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch(e) {}
+    try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch(e) {}
+    try { return new ActiveXObject("Msxml2.XMLHTTP") } catch(e) {}
+    try { return new ActiveXObject("Microsoft.XMLHTTP") } catch(e) {}
+    throw new Error( "Este Web Browser no soporta XMLHttpRequest." )
+  };
+  return new XMLHttpRequest();
+}
+
+var AJAX = createXMLHttpRequest();
+
+function handler(forma) {
+	//alert(formulario2.usuario.value)
+   //var miusuario2=this.form.usuario.value;
+	//alert(miusuario2);
+	
+   forma.nombre.value="";
+   forma.apellido.value="";	
+  if(AJAX.readyState == 4 && AJAX.status == 200) {
+      var json = eval('(' + AJAX.responseText +')');
+      //alert('Satisfactorio. Result: Nombre => ' + json.firstname + ',' + 'Apellido => ' + json.lastname);
+  	 
+      forma.nombre.value=json.nombre;
+  	  forma.apellido.value=json.apellido;
+  	
+  }else if (AJAX.readyState == 4 && AJAX.status != 200) {
+    alert('Algo no esta bien... Error...');
+  }
+}
+
+function show(formulario){
+	var miusuario=formulario.usuario.value;
+	 AJAX.onreadystatechange = handler(formulario);
+	 AJAX.open("GET", "service.jsp?username="+miusuario+"");
+	 AJAX.send("");
+	 //alert("service.jsp?username="+miusuario);
+  
+ 
+ 
+
+};
+</script>
+
+<body>
+  
+  <form name="forma" method="post">
+     <input type="text" name="usuario" >
+     <input type="text" name="nombre">
+    <input type="text" name="apellido"> 
+   
+     <input type="button" onclick="show(this.form)" value = "Enter">
+  </form>
+  
+</body>
+</html>
