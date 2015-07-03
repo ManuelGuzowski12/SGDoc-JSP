@@ -34,13 +34,13 @@
 		
 		<div class="col-md-12"> 
 		
-				<table class="table table-bordered table-striped display" id="myTable">
+				<table class="table table-bordered display" id="myTable">
 				<thead>
-				<tr class="info">
+				<tr>
 					<th>ID Documento</th>
 					<th>Fecha de Creacion</th>
-					<th>Id usuario </th>
-					<th>Nombre</th>
+					<th>Usuario</th>
+					<th>Nombre del Documento</th>
 					<th>Departamento</th>
 					<th>Vizualizar </th>
 					<th>Editar</th>
@@ -54,9 +54,9 @@
 						<tr>
 						<td><%=rs.getString("id_documento")%></td>
 						<td><%=rs.getString(2)%></td>
-						<td><%=rs.getInt(3) %></td>
-						<td><%=rs.getString(5)%></td>
-						<td><%=rs.getInt(6) %></td>
+						<td><%=rs.getString(3)%></td>
+						<td><%=rs.getString(4)%></td>
+						<td><%=rs.getString(5) %></td>
 						<td><a class="btn btn-info" href="vizualizar.jsp?id_documento=<%out.print(rs.getString("id_documento"));%>">Vizualizar</a></td>
 						<td><a class="btn btn-success" href="editardoc.jsp?id_documento=<%out.print(rs.getString("id_documento"));%>">Modificar</a></td>
 						</tr>
