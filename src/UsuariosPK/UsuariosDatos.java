@@ -46,6 +46,8 @@ public class UsuariosDatos {
 	            usuario.setId(Integer.parseInt(rs.getString("id_usuario")));
 	            usuario.setnick(rs.getString("username"));
 	            usuario.setpass(rs.getString("password"));
+	            usuario.setId(rs.getInt("id_usuario"));
+	            
 	            listaUsuarios.add(usuario);
 	         }
 	         rs.close();
@@ -79,6 +81,7 @@ public class UsuariosDatos {
 	            usuario.setsexo(rs.getString("sexo"));
 	            usuario.setnick(rs.getString("username"));
 	            usuario.setpass(rs.getString("password"));
+	            usuario.setId(rs.getInt("id_usuario"));
 	            listaUsuarios.add(usuario);
 	         }
 	         rs.close();

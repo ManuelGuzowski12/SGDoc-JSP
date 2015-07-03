@@ -3,7 +3,6 @@
     pageEncoding="ISO-8859-1"%>
     <%@ page language="java" %>
 <%@ page import = "UsuariosPK.*"%> 
-<%@ page import = "Visuales.*"%>
 <%@ page import ="java.sql.ResultSet" %>
 <%@ page import = "java.util.LinkedList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,12 +14,15 @@
 	<link href="./css/estilos.css" rel="stylesheet">
 	<script src="js/md5.js" type="text/javascript"></script>
 	<script src="js/switchery.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 	</head>
 <body>
 <div class="container-fluid">
 	<div class="row">
 	<%if(session.getAttribute("id")  != null) {
-		session.setAttribute("id_modulo", request.getParameter("id_modulo"));
+		if(session.getAttribute("id_modulo") == null){
+			session.setAttribute("id_modulo", request.getParameter("id_modulo"));
+		}
 	%>
 		<%if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), session.getAttribute("id_modulo").toString())){ %>
 		<div class="col-md-4">
@@ -39,7 +41,33 @@
 	            <div class="box">
 	                <div class="info" >
 		                <div class="row">
-		                	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+		                	<div class="col-md-2 "><i class="fa fa-user fa-2x"></i></div>
+		                	 <div class="col-md-10 " style="margin-bottom: 10px">
+		                	 <% if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "12")){
+				                	out.println("<td><a  class='btn btn-primary' onclick=\"show('Log','"+lista.get(i).getIdPersona()+"' )\"><i class='fa fa-pencil-square-o'>&nbsp</i>Editar</a></td>");
+				                }else{
+				                	out.println("<td><a  class='btn btn-primary' disabled='disabled'><i class='fa fa-pencil-square-o'>&nbsp</i>Editar</a></td>");
+				                }
+				                if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "14")){
+				                	out.println("<td><a  class='btn btn-success'\"><i class='fa fa-exclamation-circle'>&nbsp</i>Eliminar</a></td>");
+				                }else{
+				                	out.println("<td><a  class='btn btn-success' disabled='disabled'><i class='fa fa-exclamation-circle'>&nbsp</i>Eliminar</a></td>");
+				                	
+				                }
+				                if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "13")){
+				                	%>
+				                	<div class="col-md-6"><td><form action="./PermisosUsuarios.jsp" method="POST">
+				                			<input type="hidden" name="id" value="<%=lista.get(i).getId() %>"/>
+						                	<button  class='btn btn-success' type="submit">
+						                	<i class='fa fa-check-square'>&nbsp</i>Permisos</button>
+					                	</form>
+				                	</td>
+				                </div>
+				                <%}else{
+				                	out.println("<td><a  class='btn btn-success' disabled='disabled'><i class='fa fa-check-square'>&nbsp</i>Permisos</a></td>");
+				                }
+			               	%>
+		                	 </div>
 			                <table class="table c">
 				                <%
 				                out.println("<tr>");
@@ -48,8 +76,8 @@
 				                out.println("<td>"+lista.get(i).getapellido()+"</td>");
 				                out.println("<td>"+lista.get(i).getdireccion()+"</td>");
 				                out.println("<td>"+lista.get(i).getsexo()+"</td>");
-				                out.println("<td><a  class='btn btn-success' onclick=\"show('Log','"+lista.get(i).getIdPersona()+"' )\">Editar</a></td>");
-				                out.println("<td><a  class='btn btn-success' onclick=\"nuevoU('NuevoUsuario','"+lista.get(i).getIdPersona()+"')\">Usuario</a></td>");
+				               
+				                
 				                
 				                out.println("</tr>");
 				                %>
@@ -101,7 +129,7 @@
       <div class="modal-content">
         <div class="modal-header" style="background-color:#e2e2e2">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+          <h4 class="modal-title" id="gridSystemModalLabel"><i class="fa fa-user fa-2x"></i>USUARIOS</h4>
         </div>
         <div class="modal-body">
           <div class="container-fluid">

@@ -52,7 +52,7 @@ public class ModulosDatos {
 		Connection conexion = CrearConexion();
 		
 		try {
-			PreparedStatement st = conexion.prepareStatement("select * from modulos where id_modulo = any(select id_modulo from user_mod where id_usuario = ? and permiso = 1)");
+			PreparedStatement st = conexion.prepareStatement("select * from modulos where id_modulo = any(select id_modulo from user_mod where id_usuario = ? and permiso = 1) and id_padre = '0' or id_padre=null");
 			st.setString(1, id);
 			ResultSet rs= st.executeQuery();
 			while(rs.next()){
