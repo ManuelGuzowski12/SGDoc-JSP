@@ -15,7 +15,7 @@
 	 <% 
     	DateFormat fecha = new SimpleDateFormat("dd/MM/yyyy"); 
      %>
-	body {
+	body  {
 		padding-bottom: 70px;
 		background-color: #c1bfea;
 		font: oblique 120% sans-serif bold;
@@ -35,13 +35,14 @@
 				<br>
 			<form action="InsertDB.jsp" method="post" class="form-group">
 				
+				
 						<b>Documento</b>
 						<div class="dropdown">
 								<select name="id_documento" class="form-control">                      
 									<option value="0">Seleccionar Documento</option>
 									
 									<% 	documentos doc = new documentos();
-									ResultSet rs = doc.Recuperardoc();
+										ResultSet rs = doc.Recuperardoc();
 										while(rs.next())
 										{
 									%>
