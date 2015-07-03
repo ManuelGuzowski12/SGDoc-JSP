@@ -20,6 +20,7 @@
 <div class="container-fluid">
 	<div class="row">
 	<%if(session.getAttribute("id")  != null) {
+		out.println(session.getAttribute("id"));
 		if(session.getAttribute("id_modulo") == null){
 			session.setAttribute("id_modulo", request.getParameter("id_modulo"));
 		}
@@ -43,18 +44,24 @@
 		                <div class="row">
 		                	<div class="col-md-2 "><i class="fa fa-user fa-2x"></i></div>
 		                	 <div class="col-md-10 " style="margin-bottom: 10px">
-		                	 <% if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "12")){
+		                	 <% if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "13")){
 				                	out.println("<td><a  class='btn btn-primary' onclick=\"show('Log','"+lista.get(i).getIdPersona()+"' )\"><i class='fa fa-pencil-square-o'>&nbsp</i>Editar</a></td>");
 				                }else{
 				                	out.println("<td><a  class='btn btn-primary' disabled='disabled'><i class='fa fa-pencil-square-o'>&nbsp</i>Editar</a></td>");
 				                }
-				                if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "14")){
-				                	out.println("<td><a  class='btn btn-success'\"><i class='fa fa-exclamation-circle'>&nbsp</i>Eliminar</a></td>");
+				                if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "12")){
+				                %>
+				                <div class="col-md-4"><form action="./EliminarUsuarios.jsp" method="POST">
+				                <input type="hidden" name="id_persona" value="<%=lista.get(i).getIdPersona() %>"/>
+						                	<button  class='btn btn-danger' type="submit">
+						                	<i class='fa fa-exclamation-circle'>&nbsp</i>Eliminar</button>
+				                </form></div>
+				                <%
 				                }else{
 				                	out.println("<td><a  class='btn btn-success' disabled='disabled'><i class='fa fa-exclamation-circle'>&nbsp</i>Eliminar</a></td>");
 				                	
 				                }
-				                if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "13")){
+				                if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "11")){
 				                	%>
 				                	<div class="col-md-6"><td><form action="./PermisosUsuarios.jsp" method="POST">
 				                			<input type="hidden" name="id" value="<%=lista.get(i).getId() %>"/>

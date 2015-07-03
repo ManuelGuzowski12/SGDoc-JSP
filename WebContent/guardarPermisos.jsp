@@ -45,7 +45,7 @@
 	}
 		
 		
-		response.sendRedirect("./PermisosUsuarios.jsp?id="+ request.getParameter("id_usuario")+"");
+		response.sendRedirect("./Usuarios.jsp");
 	
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

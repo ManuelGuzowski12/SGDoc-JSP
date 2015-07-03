@@ -69,7 +69,7 @@ public class UsuariosDatos {
 	      {
 	    	 
 	         Statement st = conexion.createStatement();
-	         ResultSet rs = st.executeQuery("select * from personas p, usuarios u where u.id_persona=p.id_persona " );
+	         ResultSet rs = st.executeQuery("select * from personas p, usuarios u where u.id_persona=p.id_persona and u.activo='1'" );
 	         
 	         while (rs.next())
 	         {
@@ -364,6 +364,18 @@ public class UsuariosDatos {
 			// TODO: handle exception
 		}
 		 return existe;
+	 }
+	 public static void EliminarUsuario(String id){
+		 Connection conexion = CrearConexion();
+		try {
+		         PreparedStatement  st =conexion.prepareStatement("update usuarios set activo = '0' Where id_persona=?");
+		         st.setString(1, id);
+		         st.executeUpdate();	
+		         st.close();
+		         conexion.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	 }
 
 }
