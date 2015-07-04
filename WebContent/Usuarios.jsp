@@ -64,7 +64,7 @@
 				                if(PermisosDatos.TienePermisos(session.getAttribute("id").toString(), "11")){
 				                	%>
 				                	<div class="col-md-6"><td><form action="./PermisosUsuarios.jsp" method="POST">
-				                			<input type="hidden" name="id" value="<%=lista.get(i).getId() %>"/>
+				                			<input type="hidden" name="id" value="<%=lista.get(i).getId()%>"/>
 						                	<button  class='btn btn-success' type="submit">
 						                	<i class='fa fa-check-square'>&nbsp</i>Permisos</button>
 					                	</form>
