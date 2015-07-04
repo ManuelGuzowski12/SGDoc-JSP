@@ -81,7 +81,7 @@
 						
 						
 						<div class="form-group">
-							<input type="hidden" class="form-control" value="<% out.println(session.getAttribute("userlogin")); %>" name="id_usuario">
+							<input type="hidden" class="form-control" value="<% out.println(session.getAttribute("id")); %>" name="id_usuario">
 						</div>
 						<br>
 						
